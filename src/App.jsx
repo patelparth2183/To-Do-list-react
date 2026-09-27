@@ -29,12 +29,24 @@ function App() {
 		);
 	};
 
+	const deleteTodo = (id) => {
+		setTodos(todos.filter((todo) => todo.id !== id));
+	};
+
+	const editTodo = (id, newText) => {
+		setTodos(
+			todos.map((todo) =>
+				todo.id === id ? { ...todo, text: newText } : todo
+			)
+		);
+	};
+
 	return (
 		<div>
 			<Header />
 			<input type="text" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)} />
 			<button onClick={addTodo}>Add Task</button>
-			<ToDoList todos={todos} toggleTodo={toggleTodo} />
+			<ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
 		</div>
 	);
 }
