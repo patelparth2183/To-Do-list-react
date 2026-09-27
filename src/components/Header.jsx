@@ -1,10 +1,10 @@
 function Header() {
-  return (
-    <header>
-      <h1>My To-Do List</h1>
-      <p>Manage your tasks easily</p>
-    </header>
-  );
+    return (
+        <header>
+            <h1>My To-Do List</h1>
+            <p>Manage your tasks easily</p>
+        </header>
+    );
 }
 
 export default Header;
