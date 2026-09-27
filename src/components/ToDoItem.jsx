@@ -4,7 +4,7 @@ function ToDoItem({todo, toggleTodo, deleteTodo, editTodo}) {
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(todo.text);
     return (
-        <div>
+        <div className="todo-item">
             <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
             {isEditing ? (
                 <>
@@ -14,7 +14,7 @@ function ToDoItem({todo, toggleTodo, deleteTodo, editTodo}) {
                 </>
             ) : (
                 <>
-                    <span>{todo.text}</span>
+                    <span className={todo.completed ? "todo-text completed" : "todo-text"}>{todo.text}</span>
                     <button onClick={() => setIsEditing(true)}>Edit</button>
                     <button onClick={() => deleteTodo(todo.id)}>Delete</button>
                 </>

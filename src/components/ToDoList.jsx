@@ -1,13 +1,16 @@
 import ToDoItem from "./ToDoItem";
 
-function ToDoList({todos, toggleTodo, deleteTodo, editTodo}) {
+function ToDoList({ todos, toggleTodo, deleteTodo, editTodo }) {
     return (
         <div>
-            <h2>Tasks</h2>
             {
-                todos.map((todo) => (
-                    <ToDoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
-                ))
+                todos.length === 0 ? (
+                    <p>No tasks yet. Add your first task!</p>
+                ) : (
+                    todos.map((todo) => (
+                        <ToDoItem key={todo.id} todo={todo} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
+                    ))
+                )
             }
         </div>
     );

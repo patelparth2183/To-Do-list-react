@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 import Header from "./components/Header";
 import ToDoList from "./components/ToDoList";
 
@@ -42,10 +43,12 @@ function App() {
 	};
 
 	return (
-		<div>
+		<div className="app">
 			<Header />
-			<input type="text" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)} />
-			<button onClick={addTodo}>Add Task</button>
+			<div className="add-task">
+				<input type="text" placeholder="Enter a task" value={task} onChange={(e) => setTask(e.target.value)} />
+				<button onClick={addTodo}>Add Task</button>
+			</div>
 			<ToDoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} editTodo={editTodo} />
 		</div>
 	);
